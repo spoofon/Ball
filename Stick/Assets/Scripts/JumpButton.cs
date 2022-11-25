@@ -19,8 +19,7 @@ public class JumpButton : MonoBehaviour,IPointerUpHandler,IPointerDownHandler
   
      public void OnPointerDown(PointerEventData eventData){
 
-       The_Player.Jump=true;
-     
+        The_Player.DoTheJump();
 
      }
 

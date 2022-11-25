@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StickMan : MonoBehaviour
 {
-    
+    int One_Time;
     public CharacterController2D Controller;
 
     private FixedJoystick Joy_Stick;
@@ -17,10 +17,16 @@ public class StickMan : MonoBehaviour
 
      float Player_Size = .3f;
 
+    public Animator Am;
+
+    bool On_The_Ground;
+
     // Start is called before the first frame update
     void Start()
     {
         Joy_Stick = FindObjectOfType<FixedJoystick>();
+
+       
     }
 
     // Update is called once per frame
@@ -28,6 +34,8 @@ public class StickMan : MonoBehaviour
     {
         
     Left_Or_Right_Joy=Joy_Stick.Horizontal*Speed;
+
+        Am.SetFloat("Speed",Mathf.Abs(Left_Or_Right_Joy));
 
     //Left_Or_Right_Joy=Input.GetAxisRaw("Horizontal")*Speed;
 
@@ -38,25 +46,63 @@ public class StickMan : MonoBehaviour
 
         }
 
+        // Am.SetBool("Jump", Jump);
+
+
+       
 
 
     }
 
 
-     void FixedUpdate(){
+  
+
+    void FixedUpdate(){
 
 
      Controller.Move(Left_Or_Right_Joy*Time.fixedDeltaTime,false,Jump);
 
-     Jump=false;
+        Jump = false;
+
+     
  
 
      }
 
 
+    public void DoTheJump() {
+
+
+        Jump = true;
+
+       
+        if (One_Time==0) { Am.SetBool("Jump", true);One_Time = 1; }
+
+        On_The_Ground = false;
+        print("in the air");
+
+    }
+
+    public void OnLanding() {
+
+
+
+        On_The_Ground = true;
+        Am.SetBool("Jump", false);
+
+        One_Time = 0;
+
+        print("on the ground");
+
+    }
+
 
 public void IncreaseSize()
     {
+
+
+
+        Controller.m_JumpForce = 1000;
 
         Player_Size = Player_Size + .04f;
 

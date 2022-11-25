@@ -2436,7 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fabe15e3124ec8ea6091fd4bb212d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 300
+  m_JumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.082
   m_AirControl: 1
@@ -2449,7 +2449,19 @@ MonoBehaviour:
   m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 753640099}
+        m_TargetAssemblyTypeName: StickMan, Assembly-CSharp
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2513,7 +2525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753640092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.67, y: 5.18, z: 0}
+  m_LocalPosition: {x: 4.93, y: 18.03, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2537,6 +2549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 753640096}
   Jump: 0
+  Am: {fileID: 753640100}
 --- !u!95 &753640100
 Animator:
   serializedVersion: 4
