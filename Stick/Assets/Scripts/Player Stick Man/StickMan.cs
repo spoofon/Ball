@@ -37,7 +37,7 @@ public class StickMan : MonoBehaviour
 
         Am.SetFloat("Speed",Mathf.Abs(Left_Or_Right_Joy));
 
-    //Left_Or_Right_Joy=Input.GetAxisRaw("Horizontal")*Speed;
+   
 
    if (Input.GetKey("space"))
         {
@@ -46,11 +46,11 @@ public class StickMan : MonoBehaviour
 
         }
 
-        // Am.SetBool("Jump", Jump);
-
-
+    
        
+     Am.SetBool("Jump", Jump);
 
+    
 
     }
 
@@ -76,23 +76,18 @@ public class StickMan : MonoBehaviour
         Jump = true;
 
        
-        if (One_Time==0) { Am.SetBool("Jump", true);One_Time = 1; }
-
-        On_The_Ground = false;
-        print("in the air");
 
     }
+
 
     public void OnLanding() {
 
 
 
-        On_The_Ground = true;
-        Am.SetBool("Jump", false);
+      
+       // Am.SetBool("Jump", false);
 
-        One_Time = 0;
-
-        print("on the ground");
+        
 
     }
 
@@ -102,7 +97,7 @@ public void IncreaseSize()
 
 
 
-        Controller.m_JumpForce = 1000;
+       // Controller.m_JumpForce = 1000;
 
         Player_Size = Player_Size + .04f;
 
