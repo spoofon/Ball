@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StickMan : MonoBehaviour
 {
+
+    //1
     int One_Time;
     public CharacterController2D Controller;
 
